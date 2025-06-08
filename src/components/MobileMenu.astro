@@ -51,16 +51,18 @@ const { class: className } = Astro.props;
           tabindex="-1">{t("nav.about")}</a
         >
         <a
-          href="#contact"
-          class="text-primary hover:text-secondary block px-4 py-1 transition-colors duration-200"
-          role="menuitem"
-          tabindex="-1">{t("nav.contact")}</a
-        >
-        <a
           href="#services"
           class="text-primary hover:text-secondary block px-4 py-1 transition-colors duration-200"
           role="menuitem"
-          tabindex="-1">{t("nav.services")}</a
+          tabindex="-1"
+          @click="isOpen = false">{t("nav.services")}</a
+        >
+        <a
+          href="#contact"
+          class="text-primary hover:text-secondary block px-4 py-1 transition-colors duration-200"
+          role="menuitem"
+          tabindex="-1"
+          @click="isOpen = false">{t("nav.contact")}</a
         >
         <a
           href="https://substack.com/@astrofractal"

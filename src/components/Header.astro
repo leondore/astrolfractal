@@ -14,6 +14,7 @@ interface Props {
 const { height } = Astro.props;
 
 const lang = getLangFromUrl(Astro.url);
+const otherLang = lang === "es" ? "en" : "es";
 const t = useTranslations(lang);
 
 const headerHeight = `${height}px`;
@@ -32,24 +33,22 @@ const headerHeight = `${height}px`;
       >
 
       <div class="flex items-center gap-4">
-        <DropdownMenu label={t("nav.lang")}>
-          {
-            Object.entries(languages).map(([key, value]) => (
-              <DropdownItem
-                href={getRelativeLocaleUrl(key, "/")}
-                label={value}
-              />
-            ))
-          }
-        </DropdownMenu>
+        <a
+          href={getRelativeLocaleUrl(otherLang, "/")}
+          class="text-primary hover:text-secondary block transition-colors duration-200"
+          tabindex="-1"
+        >
+          <span class="hidden md:inline">{languages[otherLang]}</span>
+          <span class="uppercase md:hidden">{otherLang}</span>
+        </a>
 
         <DropdownMenu label={t("nav.menu")} class="hidden md:inline-block">
           <DropdownItem
             href={getRelativeLocaleUrl(lang, "/")}
             label={t("nav.about")}
           />
-          <DropdownItem href="#contact" label={t("nav.contact")} />
           <DropdownItem href="#services" label={t("nav.services")} />
+          <DropdownItem href="#contact" label={t("nav.contact")} />
           <DropdownItem
             href="https://substack.com/@astrofractal"
             label="Blog"
