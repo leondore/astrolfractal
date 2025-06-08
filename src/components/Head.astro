@@ -1,7 +1,10 @@
 ---
-import { Font } from "astro:assets";
-
 import "../styles/global.css";
+import { Font } from "astro:assets";
+import { getLangFromUrl, useTranslations } from "../utils/i18n";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const domain = "astrologiafractal.com";
 ---
@@ -15,30 +18,22 @@ const domain = "astrologiafractal.com";
 <link rel="shortcut icon" href="/favicon.ico" />
 
 <title>Astrología Fractal</title>
-<meta
-  name="description"
-  content="No leemos el cielo para huir de la tierra, sino para habitarla mas profundamente. Adela Dore, artista y astróloga afrocaribeña, nacida y residente en Ayiti."
-/>
+<meta name="description" content={t("head.description")} />
 
 <!-- Facebook Meta Tags -->
 <meta property="og:url" content={`https://${domain}/`} />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Astrología Fractal" />
-<meta
-  property="og:description"
-  content="No leemos el cielo para huir de la tierra, sino para habitarla mas profundamente. Adela Dore, artista y astróloga afrocaribeña, nacida y residente en Ayiti."
-/>
+<meta property="og:description" content={t("head.description")} />
 <meta property="og:image" content={`https://${domain}/astrofractal-og.jpg`} />
+<meta property="og:logo" content={`https://${domain}/logo.png`} />
 
 <!-- Twitter Meta Tags -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta property="twitter:domain" content={domain} />
 <meta property="twitter:url" content={`https://${domain}/`} />
 <meta name="twitter:title" content="Astrología Fractal" />
-<meta
-  name="twitter:description"
-  content="No leemos el cielo para huir de la tierra, sino para habitarla mas profundamente. Adela Dore, artista y astróloga afrocaribeña, nacida y residente en Ayiti."
-/>
+<meta name="twitter:description" content={t("head.description")} />
 <meta name="twitter:image" content={`https://${domain}/astrofractal-og.jpg`} />
 
 <Font cssVariable="--font-inter" preload />
