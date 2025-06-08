@@ -1,0 +1,66 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+import DropdownItem from "./DropdownItem.astro";
+import DropdownMenu from "./DropdownMenu.astro";
+import MobileMenu from "./MobileMenu.astro";
+import SocialLinks from "./SocialLinks.astro";
+import { getLangFromUrl, languages, useTranslations } from "../utils/i18n";
+
+interface Props {
+  height: number;
+}
+
+const { height } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const headerHeight = `${height}px`;
+---
+
+<header
+  class="bg-light fixed top-0 right-0 left-0 z-10 px-8 py-4"
+  style={`height: ${headerHeight};`}
+>
+  <div class="mx-auto max-w-(--container-max-width)">
+    <div class="flex w-full items-center justify-between">
+      <a
+        href="/"
+        class="text-primary text-[1.75rem] font-extrabold tracking-[-0.07em]"
+        >Astrología Fractal</a
+      >
+
+      <div class="flex items-center gap-4">
+        <DropdownMenu label={t("nav.lang")}>
+          {
+            Object.entries(languages).map(([key, value]) => (
+              <DropdownItem
+                href={getRelativeLocaleUrl(key, "/")}
+                label={value}
+              />
+            ))
+          }
+        </DropdownMenu>
+
+        <DropdownMenu label={t("nav.menu")} class="hidden md:inline-block">
+          <DropdownItem
+            href={getRelativeLocaleUrl(lang, "/")}
+            label={t("nav.about")}
+          />
+          <DropdownItem href="#contact" label={t("nav.contact")} />
+          <DropdownItem href="#services" label={t("nav.services")} />
+          <DropdownItem
+            href="https://substack.com/@astrofractal"
+            label="Blog"
+            target="_blank"
+          />
+        </DropdownMenu>
+
+        <SocialLinks class="hidden md:block" />
+
+        <MobileMenu class="md:hidden" />
+      </div>
+    </div>
+  </div>
+</header>

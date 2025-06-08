@@ -1,0 +1,22 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+import { slugify } from "../utils/helpers";
+
+interface Props {
+  href: string;
+  label: string;
+  target?: HTMLAttributes<"a">["target"];
+}
+
+const { href, label, target } = Astro.props;
+---
+
+<a
+  href={href}
+  class="text-primary hover:text-secondary block px-4 py-1 transition-colors duration-200"
+  role="menuitem"
+  tabindex="-1"
+  target={target}
+  id={`menu-item-${slugify(label)}`}>{label}</a
+>

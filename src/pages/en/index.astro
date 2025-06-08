@@ -1,0 +1,155 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import adeladore from "../../assets/adela-dore.avif";
+---
+
+<Layout>
+  <div class="px-8 pt-12 pb-12 md:pt-24">
+    <div
+      class="mx-auto grid max-w-(--container-max-width) grid-cols-12 items-center gap-6"
+    >
+      <h1
+        class="font-display text-primary col-span-12 text-5xl leading-none md:col-span-5 md:text-6xl lg:text-7xl xl:text-[88px]"
+      >
+        We interpret the stars not to escape the Earth,
+        <em>but to inhabit it more deeply.</em>
+      </h1>
+
+      <div class="text-primary col-span-12 md:col-span-7">
+        <p>
+          Adela Dore, Afro-Caribbean artist and astrologer, born and based on
+          the island of Ayiti.
+        </p>
+        <p>
+          My path in astrology began in childhood, inspired by my mother’s
+          influence. In 2013, while living in Argentina, I formally immersed
+          myself in its study, training as a humanistic astrologer with Julieta
+          Collado (2013–2015). I then deepened my studies through Soul Level
+          Astrology, completing a four-year training with Mark Borax
+          (2016–2020).
+        </p>
+        <p>
+          Since 2016, I’ve run a personal practice offering natal chart readings
+          and workshops focused on astrology as a tool for self-discovery and
+          transformation.
+        </p>
+        <p>
+          In 2018, I joined the team at KnowTheZodiac —an astrology platform led
+          by Dossé-Via Trenou— as a writer and consulting astrologer.
+        </p>
+        <p>
+          Through both my art and astrological practice, I seek to create space
+          for reflection, care, and reconnection with one's inner rhythms —as an
+          invitation to inhabit life with greater consciousness, presence, and
+          intention.
+        </p>
+
+        <a
+          href="https://calendly.com/adeladore/consultaastrologica"
+          target="_blank"
+          class="text-primary hover:text-light hover:bg-primary block h-12 content-center border text-center text-sm font-bold uppercase transition-colors duration-200 lg:h-16"
+          >Book a Reading</a
+        >
+      </div>
+    </div>
+  </div>
+
+  <div class="h-60 overflow-hidden md:h-96 lg:h-[30rem] xl:h-[35rem]">
+    <Image
+      src={adeladore}
+      alt="Adela Dore"
+      class="h-full w-full object-cover object-bottom"
+    />
+  </div>
+
+  <div class="px-8 py-12">
+    <div class="mx-auto max-w-(--container-max-width)">
+      <h2
+        class="font-display text-primary text-center text-2xl leading-tight md:text-3xl lg:text-4xl"
+      >
+        The birth chart doesn’t impose a fixed destiny. It brings clarity, opens
+        questions, and points to spaces your being already knows. <em
+          >It’s an invitation to inhabit yourself.</em
+        >
+      </h2>
+    </div>
+  </div>
+
+  <div class="p-8">
+    <div class="mx-auto grid max-w-(--container-max-width)">
+      <div class="grid grid-cols-12 gap-8 md:px-[8%]">
+        <div class="col-span-12 md:col-span-4">
+          <h3 class="mb-4 text-3xl font-bold lg:text-4xl">Natal Chart</h3>
+          <p>
+            Your natal chart is a snapshot of the sky at the moment you were
+            born. It's a map that reflects your cycles, challenges, potentials,
+            and ways of being in the world. This consultation, through a
+            humanistic lens, offers a space for clarity and recognition.
+            Together, we explore the core dynamics of your chart to understand
+            patterns, release conditioning, and open paths that are more aligned
+            with who you truly are.
+          </p>
+          <p><strong>80 min session</strong></p>
+          <p><strong>US$100 / DOP$6,000</strong></p>
+        </div>
+
+        <div class="col-span-12 md:col-span-4">
+          <h3 class="mb-4 text-3xl font-bold lg:text-4xl">Solar Return</h3>
+          <p>
+            Each year on your birthday, the Sun returns to the exact point it
+            occupied when you were born. Your Solar Return is a snapshot of the
+            sky at that moment —a map reflecting the energies, opportunities,
+            and challenges that will shape your year ahead. In this session, we
+            explore what’s unfolding for you in this new cycle. It’s not about
+            predicting the future, but about offering clarity, so you can move
+            through it with greater awareness, presence, and direction.
+          </p>
+          <p><strong>80 min session</strong></p>
+          <p><strong>US$100 / DOP$6,000</strong></p>
+        </div>
+
+        <div class="col-span-12 md:col-span-4">
+          <h3 class="mb-4 text-3xl font-bold lg:text-4xl">Follow-up</h3>
+          <p>
+            These sessions offer ongoing support for your personal journey, at a
+            whatever pace that suits you —monthly or whenever you feel called.
+            Through the lens of current transits, we explore the themes
+            unfolding in your life and how you can engage with them more
+            consciously. We can focus on a specific process, tend to particular
+            questions, clear doubts, or simply look at the energies at play and
+            how to make the most of them.
+          </p>
+          <p><strong>45 min session</strong></p>
+          <p><strong>US$50 / DOP$3,000</strong></p>
+        </div>
+      </div>
+
+      <div class="pt-10 md:px-[8%]">
+        <p>
+          <strong
+            >Sessions are offered via Zoom or in person, and include a
+            recording. For each session, your date, time, and place of birth are
+            required. Your appointment will be confirmed once full payment is
+            received, via PayPal or bank transfer.</strong
+          >
+        </p>
+
+        <a
+          href="https://calendly.com/adeladore/consultaastrologica"
+          target="_blank"
+          class="text-primary hover:text-light hover:bg-primary block h-12 content-center border text-center text-sm font-bold uppercase transition-colors duration-200 lg:h-16"
+          >Book a Reading</a
+        >
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  @reference "@global.css";
+
+  p {
+    @apply mb-4 text-base leading-tight lg:text-lg;
+  }
+</style>

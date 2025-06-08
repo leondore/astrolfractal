@@ -1,11 +1,154 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import adeladore from "../assets/adela-dore.avif";
 ---
 
 <Layout>
-	<Welcome />
+  <div class="px-8 pt-12 pb-12 md:pt-24">
+    <div
+      class="mx-auto grid max-w-(--container-max-width) grid-cols-12 items-center gap-6"
+    >
+      <h1
+        class="font-display text-primary col-span-12 text-5xl leading-none md:col-span-5 md:text-6xl lg:text-7xl xl:text-[88px]"
+      >
+        No leemos el cielo para huir de la tierra,
+        <em>sino para habitarla mas profundamente.</em>
+      </h1>
+
+      <div class="text-primary col-span-12 md:col-span-7">
+        <p>
+          Adela Dore, artista y astróloga afrocaribeña, nacida y residente en la
+          isla Ayiti.
+        </p>
+        <p>
+          Mi camino en la astrología comenzó desde niña, inspirada por la
+          influencia de mi madre. En 2013, mientras vivía en Argentina, me
+          sumergí formalmente en su estudio, formándome como astróloga humanista
+          con Julieta Collado (2013–2015). Luego continué profundizando a través
+          de Soul Level Astrology, completando una formación de cuatro años con
+          Mark Borax (2016–2020).
+        </p>
+        <p>
+          Desde 2016 sostengo una práctica personal donde ofrezco lecturas de
+          carta natal y talleres enfocados en la astrología como herramienta de
+          autoconocimiento y transformación.
+        </p>
+        <p>
+          En 2018 me uní al equipo de KnowTheZodiac —plataforma de astrología
+          liderada por Dossé-Via Trenou— como escritora y astróloga consultante.
+        </p>
+        <p>
+          Tanto en mi arte como en mi práctica astrológica, busco crear espacios
+          de reflexión, cuidado y reconexión con los propios ritmos internos,
+          invitando a habitar la vida con mayor conciencia, presencia e
+          intención.
+        </p>
+
+        <a
+          href="https://calendly.com/adeladore/consultaastrologica"
+          target="_blank"
+          class="text-primary hover:text-light hover:bg-primary block h-12 content-center border text-center text-sm font-bold uppercase transition-colors duration-200 lg:h-16"
+          >Agenda tu Consulta</a
+        >
+      </div>
+    </div>
+  </div>
+
+  <div class="h-60 overflow-hidden md:h-96 lg:h-[30rem] xl:h-[35rem]">
+    <Image
+      src={adeladore}
+      alt="Adela Dore"
+      class="h-full w-full object-cover object-bottom"
+    />
+  </div>
+
+  <div class="px-8 py-12">
+    <div class="mx-auto max-w-(--container-max-width)">
+      <h2
+        class="font-display text-primary text-center text-2xl leading-tight md:text-3xl lg:text-4xl"
+      >
+        El mapa astral no impone un destino fijo. Trae claridad, abre preguntas,
+        señala espacios que tu ser ya conoce. <em
+          >Es una invitación a habitarte.</em
+        >
+      </h2>
+    </div>
+  </div>
+
+  <div class="p-8">
+    <div class="mx-auto grid max-w-(--container-max-width)">
+      <div class="grid grid-cols-12 gap-8 md:px-[8%]">
+        <div class="col-span-12 md:col-span-4">
+          <h3 class="mb-4 text-3xl font-bold lg:text-4xl">Carta Natal</h3>
+          <p>
+            Tu carta natal es una imagen del cielo al momento en que naciste. Es
+            un mapa que refleja tus ciclos, desafíos, potenciales y formas de
+            estar en el mundo. Esta consulta, desde una mirada humanista, es un
+            espacio de claridad y reconocimiento. Juntxs exploramos las
+            dinámicas centrales de tu carta para comprender patrones, liberar
+            condicionamientos y abrir caminos más alineados con lo que eres.
+          </p>
+          <p><strong>Sesión de 80 min</strong></p>
+          <p><strong>DOP$6,000 / US$100</strong></p>
+        </div>
+
+        <div class="col-span-12 md:col-span-4">
+          <h3 class="mb-4 text-3xl font-bold lg:text-4xl">Revolución Solar</h3>
+          <p>
+            Cada vez que cumples años, el Sol vuelve al mismo punto donde estaba
+            cuando naciste. La Revolución Solar es una imagen del cielo en ese
+            momento, un mapa que refleja las energías, oportunidades y desafíos
+            que te acompañarán en el próximo año de tu vida. En esta consulta
+            exploramos juntxs lo que se abre para ti en este nuevo ciclo. No se
+            trata de predecir, sino de darte claridad para que lo vivas con más
+            conciencia y dirección.
+          </p>
+          <p><strong>Sesión de 80 min</strong></p>
+          <p><strong>DOP$6,000 / US$100</strong></p>
+        </div>
+
+        <div class="col-span-12 md:col-span-4">
+          <h3 class="mb-4 text-3xl font-bold lg:text-4xl">Seguimiento</h3>
+          <p>
+            Estas sesiones acompañan de forma continua tu proceso personal, con
+            la frecuencia que necesites —mensualmente o según tu ritmo. A partir
+            de los tránsitos actuales, exploramos los temas que se están
+            activando en tu vida y cómo puedes relacionarte con ellos de forma
+            más consciente. Podemos enfocarnos en un proceso específico, atender
+            consultas puntuales, disipar dudas o simplemente mirar juntxs qué
+            energías están disponibles y cómo aprovecharlas en el presente.
+          </p>
+          <p><strong>Sesión de 45 min</strong></p>
+          <p><strong>DOP$3,000 / US$50</strong></p>
+        </div>
+      </div>
+
+      <div class="pt-10 md:px-[8%]">
+        <p>
+          <strong
+            >Vía Zoom o presencial. Incluye grabación. Para todas las sesiones
+            es necesario contar con tu fecha, hora y lugar de nacimiento. La
+            sesión queda agendada una vez recibido el pago total del servicio,
+            que puede realizarse por PayPal o transferencia bancaria.</strong
+          >
+        </p>
+
+        <a
+          href="https://calendly.com/adeladore/consultaastrologica"
+          target="_blank"
+          class="text-primary hover:text-light hover:bg-primary block h-12 content-center border text-center text-sm font-bold uppercase transition-colors duration-200 lg:h-16"
+          >Agenda tu Consulta</a
+        >
+      </div>
+    </div>
+  </div>
 </Layout>
+
+<style>
+  @reference "@global.css";
+
+  p {
+    @apply mb-4 text-base leading-tight lg:text-lg;
+  }
+</style>

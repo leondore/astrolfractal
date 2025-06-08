@@ -1,0 +1,15 @@
+:root {
+  --container-max-width: 88rem;
+}
+
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-instrument-serif);
+  --font-display: var(--font-instrument-serif);
+
+  --color-primary: #69768e;
+  --color-secondary: #122747;
+  --color-light: #feffef;
+}

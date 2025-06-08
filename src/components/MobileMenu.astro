@@ -1,0 +1,95 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+import DropdownItem from "./DropdownItem.astro";
+import DropdownMenu from "./DropdownMenu.astro";
+import { getLangFromUrl, useTranslations } from "../utils/i18n";
+import SocialLinks from "./SocialLinks.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div x-data="{ isOpen: false }" class={className}>
+  <button
+    class="hamburger hamburger--elastic relative inline-block cursor-pointer p-1.5 leading-none transition-opacity duration-150 ease-linear hover:opacity-70 focus:outline-none"
+    :class="{ 'is-active': isOpen }"
+    type="button"
+    aria-label="Menu"
+    aria-controls="navigation"
+    @click="isOpen = !isOpen"
+  >
+    <span class="hamburger-box relative inline-block h-6 w-8">
+      <span
+        class="hamburger-inner is-active:translate-y-[10px] is-active:rotate-[135deg] is-active:delay-[75ms] is-active:before:opacity-0 is-active:before:delay-0 is-active:after:translate-y-[-20px] is-active:after:rotate-[-270deg] is-active:after:delay-[75ms] bg-primary before:bg-primary after:bg-primary absolute top-0.5 block h-0.5 w-8 rounded transition-transform duration-[275ms] ease-[cubic-bezier(0.68,-0.55,0.265,1.55)] before:absolute before:top-[10px] before:block before:h-0.5 before:w-8 before:rounded before:transition-opacity before:delay-[275ms] before:duration-[125ms] before:ease-in before:content-[''] after:absolute after:top-5 after:block after:h-0.5 after:w-8 after:rounded after:transition-transform after:duration-[275ms] after:ease-[cubic-bezier(0.68,-0.55,0.265,1.55)] after:content-['']"
+      ></span>
+    </span>
+  </button>
+
+  <div
+    class="bg-light fixed right-0 bottom-0 left-0 z-10 h-[calc(100vh-74px)]"
+    x-show="isOpen"
+    x-transition:enter="transition ease-out duration-100 transform"
+    x-transition:enter-start="opacity-0 translate-y-5"
+    x-transition:enter-end="opacity-100 translate-y-0"
+    x-transition:leave="transition ease-in duration-75 transform"
+    x-transition:leave-start="opacity-100 translate-y-0"
+    x-transition:leave-end="opacity-0 translate-y-5"
+  >
+    <div class="flex h-full flex-col items-center gap-4 text-center">
+      <div class="w-full flex-auto content-center text-4xl leading-snug">
+        <a
+          href={getRelativeLocaleUrl(lang, "/")}
+          class="text-primary hover:text-secondary block px-4 py-1 transition-colors duration-200"
+          role="menuitem"
+          tabindex="-1">{t("nav.about")}</a
+        >
+        <a
+          href="#contact"
+          class="text-primary hover:text-secondary block px-4 py-1 transition-colors duration-200"
+          role="menuitem"
+          tabindex="-1">{t("nav.contact")}</a
+        >
+        <a
+          href="#services"
+          class="text-primary hover:text-secondary block px-4 py-1 transition-colors duration-200"
+          role="menuitem"
+          tabindex="-1">{t("nav.services")}</a
+        >
+        <a
+          href="https://substack.com/@astrofractal"
+          class="text-primary hover:text-secondary block px-4 py-1 transition-colors duration-200"
+          role="menuitem"
+          tabindex="-1"
+          target="_blank">Blog</a
+        >
+      </div>
+
+      <div class="w-full flex-initial basis-1/12">
+        <SocialLinks size={24} />
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  @reference "@global.css";
+
+  .hamburger.is-active .hamburger-inner {
+    @apply translate-y-[10px] rotate-[135deg] delay-[75ms];
+  }
+
+  .hamburger.is-active .hamburger-inner::before {
+    @apply opacity-0 delay-0;
+  }
+
+  .hamburger.is-active .hamburger-inner::after {
+    @apply -translate-y-5 -rotate-[270deg] delay-[75ms];
+  }
+</style>
