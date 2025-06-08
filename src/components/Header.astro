@@ -21,28 +21,31 @@ const headerHeight = `${height}px`;
 ---
 
 <header
-  class="bg-light fixed top-0 right-0 left-0 z-10 px-8 py-4"
+  class="bg-light fixed top-0 right-0 left-0 z-20 px-8 py-4"
   style={`height: ${headerHeight};`}
 >
   <div class="mx-auto max-w-(--container-max-width)">
     <div class="flex w-full items-center justify-between">
       <a
         href="/"
-        class="text-primary text-[1.75rem] font-extrabold tracking-[-0.07em]"
+        class="text-primary relative z-20 text-[1.75rem] font-extrabold tracking-[-0.07em]"
         >Astrología Fractal</a
       >
 
       <div class="flex items-center gap-4">
         <a
           href={getRelativeLocaleUrl(otherLang, "/")}
-          class="text-primary hover:text-secondary block transition-colors duration-200"
+          class="text-primary hover:text-secondary relative z-20 block transition-colors duration-200"
           tabindex="-1"
         >
           <span class="hidden md:inline">{languages[otherLang]}</span>
           <span class="uppercase md:hidden">{otherLang}</span>
         </a>
 
-        <DropdownMenu label={t("nav.menu")} class="hidden md:inline-block">
+        <DropdownMenu
+          label={t("nav.menu")}
+          class="relative z-20 hidden md:inline-block"
+        >
           <DropdownItem
             href={getRelativeLocaleUrl(lang, "/")}
             label={t("nav.about")}
@@ -56,7 +59,7 @@ const headerHeight = `${height}px`;
           />
         </DropdownMenu>
 
-        <SocialLinks class="hidden md:block" />
+        <SocialLinks class="relative z-20 hidden md:block" />
 
         <MobileMenu class="md:hidden" />
       </div>

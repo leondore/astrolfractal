@@ -16,9 +16,9 @@ interface Props {
 const { class: className } = Astro.props;
 ---
 
-<div x-data="{ isOpen: false }" class={className}>
+<div x-data="{ isOpen: false }" class:list={[className, "z-10"]}>
   <button
-    class="hamburger hamburger--elastic relative inline-block cursor-pointer p-1.5 leading-none transition-opacity duration-150 ease-linear hover:opacity-70 focus:outline-none"
+    class="hamburger hamburger--elastic relative z-20 inline-block cursor-pointer p-1.5 leading-none transition-opacity duration-150 ease-linear hover:opacity-70 focus:outline-none"
     :class="{ 'is-active': isOpen }"
     type="button"
     aria-label="Menu"
